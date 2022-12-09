@@ -1,14 +1,16 @@
 import React from "react";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useThemeHook } from './GlobalComponents/ThemeProvider';
+import Header from './components/Header';
 
 function App() {
+  const [theme] = useThemeHook();
   
   return (
-    <div className="App">
-      <h1>
-        Hola Mundo
-      </h1>
-    </div>
+    <main className={theme? 'bg-black': 'bg-light-2'}>
+       <Header/>
+    </main>
   );
 }
 
