@@ -1,16 +1,33 @@
-import React from "react";
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useThemeHook } from './GlobalComponents/ThemeProvider';
-import Header from './components/Header';
+import { createBrowserRouter, RouterProvider, Route} from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Product from "./pages/Product/Product";
+import Products from "./pages/Products/Products";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/products/:id",
+        element: <Products />,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const [theme] = useThemeHook();
-  
   return (
-    <main className={theme? 'bg-black': 'bg-light-2'}>
-       <Header/>
-    </main>
+    <div>
+      <RouterProvider router={router} />
+    </div>
   );
 }
 
