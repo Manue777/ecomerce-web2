@@ -4,14 +4,12 @@ import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from './GlobalComponents/ThemeProvider';
+
 
 
 render(
   <React.StrictMode>
-    <ThemeProvider>ºººººº
         <App />
-    </ThemeProvider>
   </React.StrictMode>
 , document.getElementById('root'));
 
